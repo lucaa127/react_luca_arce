@@ -8,7 +8,8 @@ function App() {
   return (
     
     <div className="App">
-      <Test />
+      {/* <Test /> */}
+      {/* Mas test */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
