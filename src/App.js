@@ -1,26 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 import react from 'react';
-import Test from './component/Test';
+import NavBar from './component/NavBar';
 
 
 function App() {
   return (
     
     <div className="App">
-      {/* <Test /> */}
-      <header className="App-header">
+      
+      <NavBar />
+
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
 
       
-        </p>
+        </p> */}
 
         
  
         
-      
+{/*       
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -29,7 +32,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
