@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import react from 'react';
-import NavBar from './component/NavBar';
+import NavBarBS from './component/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemListContainer from './component/ItemListContainer';
+
 
 
 function App() {
@@ -9,8 +12,8 @@ function App() {
     
     <div className="App">
       
-      <NavBar />
-
+      <NavBarBS />
+      <ItemListContainer />
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

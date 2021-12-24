@@ -1,36 +1,36 @@
-const NavBar = () => {
+import React from 'react';
+import { Navbar, Nav, Container,NavDropdown } from 'react-bootstrap';
+import logo from '../assets/png/logo.png'
+
+
+
+
+const NavBarBS = () => {
     return (
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Carrito</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorías
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Categoría 1</a></li>
-            <li><a class="dropdown-item" href="#">Categoría 2</a></li>
-            <li><a class="dropdown-item" href="#">Categoría 3</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Promociones</a>
-        </li>
+      <Navbar bg="dark" variant="dark">
+      <Container>
+      <img src={logo}/>
+      <Nav className="me-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <NavDropdown title="Categorias" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="#action3">Categoría 1</NavDropdown.Item>
+          <NavDropdown.Item href="#action4">Categoría 2</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action5">
+          Categoría 3
+          </NavDropdown.Item>
+        </NavDropdown>
+        <Nav.Link href="#promociones">Promociones</Nav.Link>
+    
+       
 
-      </ul>
-    </div>
-  </div>
-</nav>
+      </Nav>
+      </Container>
+    </Navbar>
+
+
     )
 }
 
-export default NavBar
+export default NavBarBS
