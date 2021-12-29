@@ -13,7 +13,8 @@ function App() {
     <div className="App">
       
       <NavBarBS />
-      <ItemListContainer />
+      
+      <ItemListContainer greeting='Bienvenido a nuestra tienda!' />
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

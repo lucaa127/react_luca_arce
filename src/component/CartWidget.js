@@ -1,13 +1,14 @@
 
-// import React from 'react'
-// // import {BsFillCartCheckFill} from React-Icons/bs
+import React from 'react'
+import {RiShoppingCartFill} from 'react-icons/ri';
 
-// const CartWidget = () => {
-//     return (
-//         <div>
-//             {/* <BsFillCartCheckFill/> */}
-//         </div>
-//     )
-// }
+const CartWidget = () => {
+    return (
+        <div style={{fontSize: '1.5rem'}}>
+            
+            <RiShoppingCartFill/>
+        </div>
+    )
+}
 
-// export default CartWidget
+export default CartWidget
