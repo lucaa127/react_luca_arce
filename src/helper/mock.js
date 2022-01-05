@@ -1,5 +1,4 @@
 
-
 //array de productos
 
 const productos = [
