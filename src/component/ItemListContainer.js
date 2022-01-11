@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getFetch } from '../helper/mock'
+import ItemDetailContainer from './ItemDetailContainer';
 import ItemList from './ItemList';
 import Loading from './loading/Loading';
 
@@ -24,11 +25,17 @@ function ItemListContainer({greeting}) {
           {carga ? (<Loading />):
           
           (
-           <>   
-          <h4>{greeting}</h4>
-          <ItemList items={productos}/>
-          </>
+            <>   
+            <h4>{greeting}</h4>
+            
+            <div className='d-flex justify-content-center'>
+            <ItemList items={productos}/>
+            </div>
+            <ItemDetailContainer />
+            </>
           )
+
+           
         }
 
       </div>

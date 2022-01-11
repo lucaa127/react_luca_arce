@@ -5,16 +5,18 @@ import { Card, Button } from 'react-bootstrap';
 
 const Item = ({prods}) => {
     return (
-    <Card style={{ width: '18rem', margin:'auto'}}>
+        
+    <Card style={{ width: '18rem'}}>
         <Card.Img variant="top" src={prods.imagen} style={{padding:'45px'}} alt='Imagen Cafe' />
             <Card.Body>
-                <Card.Title>{prods.detalle}</Card.Title>
+                <Card.Title>{prods.nombre}</Card.Title>
                 <Card.Text>
                     ${prods.precio}
                 </Card.Text>
                 <Button variant="primary">Detalles del producto</Button>
             </Card.Body>
     </Card>
+   
     )
 }
 
