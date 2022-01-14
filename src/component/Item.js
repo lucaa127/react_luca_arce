@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap';
-// import { getFetch } from '../helper/mock'
+import { Link } from 'react-router-dom';
 
 
 const Item = ({prods}) => {
@@ -13,7 +13,7 @@ const Item = ({prods}) => {
                 <Card.Text>
                     ${prods.precio}
                 </Card.Text>
-                <Button variant="primary">Detalles del producto</Button>
+                <Link to={`/detalle/${prods.id}`}> <Button variant="primary">Detalles del producto</Button></Link>
             </Card.Body>
     </Card>
    

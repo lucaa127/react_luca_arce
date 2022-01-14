@@ -1,3 +1,11 @@
+# Proyecto final: primera entrega.
+
+ Aplicación simple para listar un catálogo de productos, permitiendo filtrarlos por categoría y acceder al detalle de cada uno.
+ 
+ El desarrollo del proyecto se viene realizando según los temas tratados en las clases, solo se agregó el uso de bootstrap para evitar tiempos extras con diseño y centrar la atención en React. 
+
+
+# ##############################################################################################
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

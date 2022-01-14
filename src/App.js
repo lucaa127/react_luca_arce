@@ -1,12 +1,10 @@
-// import logo from './logo.svg';
 import './App.css';
 import NavBarBS from './component/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './component/ItemListContainer';
-// import ItemCount from './component/ItemCount';
-
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Cart from './component/Cart';
+import ItemDetailContainer from './component/ItemDetailContainer';
 
 
 
@@ -15,19 +13,19 @@ function App() {
     
     <div className="App">
       
-        
-      <NavBarBS />
-      
       <BrowserRouter>
-        <Routes>
-          
-        <Route exact path= '/' element= {<ItemListContainer greeting='Bienvenido a nuestra tienda!' />} />
-        <Route exact path= '/cart' element= {< Cart />} />
+        <NavBarBS />
         
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            
+          <Route exact path= '/' element= {<ItemListContainer greeting='Bienvenido a nuestra tienda!' />} />
+          <Route exact path= '/categorias/:categoriaId' element= {<ItemListContainer greeting='Bienvenido a nuestra tienda!' />} />
+          <Route exact path= '/detalle/:detalleId' element= {<ItemDetailContainer greeting='Bienvenido a nuestra tienda!' />} />
+          <Route exact path= '/cart' element= {< Cart />} />
+          
+          </Routes>
 
-            {/* <ItemCount minimo={1} maximo={10} /> */}
+      </BrowserRouter>
         
 
     </div>

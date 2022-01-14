@@ -2,33 +2,30 @@ import React from 'react';
 import { Navbar, Nav, Container,NavDropdown } from 'react-bootstrap';
 import logo from '../assets/png/logo.png';
 import CartWidget from '../component/CartWidget';
+import { Link } from 'react-router-dom';
 
 const NavBarBS = () => {
     return (
 
     <Navbar bg="dark" variant="dark">
       <Container>
-        <img src={logo}/>
+      <Link to='/'><img src={logo}/></Link>
         
         <Nav className="me-auto">
         
-          <Nav.Link href="#home">Home</Nav.Link>
+          <Link className='nav-link' to='/'> Home </Link>
 
-          <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Categoría 1</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Categoría 2</NavDropdown.Item>
-                <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Categoría 3
-              </NavDropdown.Item>
+          <NavDropdown title="Bebidas" id="navbarScrollingDropdown">
+
+            <Link className='dropdown-item' to='/categorias/jugo'> Jugos de fruta </Link>
+            <Link className='dropdown-item' to='/categorias/cafe'> Café</Link>
+
           </NavDropdown>
-
-            <Nav.Link href="#promociones">Promociones</Nav.Link>
         
         </Nav>
 
         <Nav>
-          <Nav.Link className="justify-content-end" href='#'> <CartWidget /> </Nav.Link>
+          <Link className=' nav-link justify-content-end' to='/cart'> <CartWidget /> </Link>
         </Nav>
       
       </Container>

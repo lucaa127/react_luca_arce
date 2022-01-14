@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import { getFetch } from '../helper/mock'
 import ItemDetailContainer from './ItemDetailContainer';
 import ItemList from './ItemList';
@@ -10,13 +11,23 @@ function ItemListContainer({greeting}) {
     const [productos, setProductos] = useState([])
 
     const [carga, setCarga] = useState(true)
+    const {categoriaId} = useParams()
+
 
     useEffect(() => {
+      if(categoriaId){
+        getFetch
+        .then(resp => setProductos(resp.filter(prod => prod.categoria === categoriaId)))
+        .catch(err => console.log(err))
+        .finally(()=> setCarga(false)) 
+      } else {
         getFetch
         .then(resp => setProductos(resp))
         .catch(err => console.log(err))
         .finally(()=> setCarga(false)) 
-    }, [])
+      }
+
+    }, [categoriaId])
 
         console.log(productos)
 
@@ -28,10 +39,10 @@ function ItemListContainer({greeting}) {
             <>   
             <h4>{greeting}</h4>
             
-            <div className='d-flex justify-content-center'>
+            <div className='row justify-content-center'>
             <ItemList items={productos}/>
             </div>
-            <ItemDetailContainer />
+            {/* <ItemDetailContainer /> */}
             </>
           )
 
