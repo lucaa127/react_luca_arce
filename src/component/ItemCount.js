@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
-const ItemCount = ({minimo, maximo}) => {
+
+const ItemCount = ({minimo, maximo, onAdd}) => {
 
     const [counter, setCounter] = useState(minimo)
 
@@ -40,11 +41,12 @@ const ItemCount = ({minimo, maximo}) => {
                             <Button variant="outline-secondary" className='col-sm-2 col-2' onClick={handleIncrement}>
                             +
                             </Button>
-                            
+                            <Button variant="secondary" onClick={() => onAdd(counter)}>Agregar producto</Button>
                         </InputGroup>
+                        
 
-        )
 
+        )               
     }
 
 export default ItemCount

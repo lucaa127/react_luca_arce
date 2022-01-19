@@ -1,8 +1,18 @@
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ItemCount from '../component/ItemCount';
+import { useState } from 'react';
 
 const ItemDetail = ({producto}) => {
+
+    const [show, setShow] = useState(true)
+
+    const onAdd = (contador) => {
+        setShow(false)
+        // alert(`${contador}`)
+       
+    }
+
     return (
 
         <Card style={{ width: '20rem'}}>
@@ -16,9 +26,11 @@ const ItemDetail = ({producto}) => {
                     {producto.detalle}
                 </Card.Text>
 
-                <ItemCount minimo={1} maximo={producto.stock} /> 
+                {show ? <ItemCount minimo={1} maximo={producto.stock} onAdd={onAdd} /> : 
+                <Link to='/cart'><Button variant="secondary">Ir al carrito</Button></Link> }
+                 
                 
-                <Link to='/cart'><Button variant="secondary">Agregar producto</Button></Link>
+                
             </Card.Body>
         </Card>
 
