@@ -2,13 +2,21 @@ import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ItemCount from '../component/ItemCount';
 import { useState } from 'react';
+import { useCartContext } from '../context/CartContext';
 
 const ItemDetail = ({producto}) => {
 
+   
+    
     const [show, setShow] = useState(true)
-
+    const {agregarAlCarrito} = useCartContext()
+    
     const onAdd = (contador) => {
         setShow(false)
+        agregarAlCarrito( {...producto, cantidad: contador} )
+        
+
+        
         // alert(`${contador}`)
        
     }
