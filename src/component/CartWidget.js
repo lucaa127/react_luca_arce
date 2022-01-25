@@ -1,14 +1,28 @@
 
 import React from 'react'
 import {RiShoppingCartFill} from 'react-icons/ri';
+import { useCartContext } from '../context/CartContext';
 
 const CartWidget = () => {
+
+    const {totalWidget} = useCartContext()
+    
+    let valorCarrito = totalWidget()
+
     return (
-        <div style={{fontSize: '1.5rem'}}>
+
+        <>
+
+        { valorCarrito > 0 ? 
+        (<div style={{fontSize: '1.4rem'}}>
             
-            <RiShoppingCartFill/>
-        </div>
+            <RiShoppingCartFill/> {valorCarrito}
+            
+
+        </div> ) : (<></>) 
+            }
+        </>
+         
     )
 }
-
 export default CartWidget

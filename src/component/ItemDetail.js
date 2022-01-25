@@ -23,7 +23,7 @@ const ItemDetail = ({producto}) => {
 
     return (
 
-        <Card style={{ width: '20rem'}}>
+        <Card style={{ width: '18rem'}}>
         <Card.Img variant="top" src={producto.imagen} style={{padding:'35%'}} alt='Imagen Cafe' />
             <Card.Body>
                 <Card.Title>{producto.nombre}</Card.Title>
@@ -35,11 +35,16 @@ const ItemDetail = ({producto}) => {
                 </Card.Text>
 
                 {show ? <ItemCount minimo={1} maximo={producto.stock} onAdd={onAdd} /> : 
-                <Link to='/cart'><Button variant="secondary">Ir al carrito</Button></Link> }
+                <>
+                    <Link to='/'><Button variant="secondary" className='md-5 p-1'>Seguir comprando</Button></Link> 
+
+                    <Link to='/cart'><Button variant="danger" className='mt-1 p-1' >Terminar mi compra</Button></Link>
+
+                </>
+                }
                  
-                
-                
             </Card.Body>
+
         </Card>
 
 
