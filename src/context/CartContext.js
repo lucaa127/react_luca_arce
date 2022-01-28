@@ -18,8 +18,6 @@ export const CartContextProvider = ({children}) => {
                  
                 if (indiceItem > -1){
                     
-                    //let cantidadCarrito = cartList[indiceItem].cantidad
-                    //let actualizarCantidadCarrito = cartList[indiceItem].cantidad + items.cantidad
                     cartList[indiceItem].cantidad += items.cantidad
                     setCartList( [...cartList] )
 
@@ -52,6 +50,7 @@ export const CartContextProvider = ({children}) => {
         const vaciarCarrito = () => {
             setCartList([])
         }
+
 
         return(
             <cartContext.Provider value={{

@@ -6,25 +6,19 @@ import { useCartContext } from '../context/CartContext';
 
 const ItemDetail = ({producto}) => {
 
-   
-    
     const [show, setShow] = useState(true)
     const {agregarAlCarrito} = useCartContext()
     
     const onAdd = (contador) => {
         setShow(false)
         agregarAlCarrito( {...producto, cantidad: contador} )
-        
-
-        
-        // alert(`${contador}`)
-       
-    }
+              
+        }
 
     return (
 
         <Card style={{ width: '18rem'}}>
-        <Card.Img variant="top" src={producto.imagen} style={{padding:'35%'}} alt='Imagen Cafe' />
+        <Card.Img variant="top" src={producto.img} style={{padding:'35%'}} alt='Imagen Cafe' />
             <Card.Body>
                 <Card.Title>{producto.nombre}</Card.Title>
                 <Card.Text>
@@ -47,10 +41,7 @@ const ItemDetail = ({producto}) => {
 
         </Card>
 
-
-
     )
 }
-
 
 export default ItemDetail

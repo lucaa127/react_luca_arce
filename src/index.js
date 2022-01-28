@@ -8,6 +8,7 @@ import { getFirestoreApp } from './firebase/deConfig';
 
 getFirestoreApp()
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

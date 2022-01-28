@@ -1,13 +1,13 @@
-import React from 'react'
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
 const Item = ({prods}) => {
+    
     return (
         
     <Card style={{ width: '18rem'}}>
-        <Card.Img variant="top" src={prods.imagen} style={{padding:'45px'}} alt='Imagen Cafe' />
+        <Card.Img variant="top" src={prods.img} style={{padding:'45px'}} alt='Imagen Cafe' />
             <Card.Body>
                 <Card.Title>{prods.nombre}</Card.Title>
                 <Card.Text>

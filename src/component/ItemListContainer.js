@@ -1,73 +1,54 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import { getFetch } from '../helper/mock'
-import ItemDetailContainer from './ItemDetailContainer';
 import ItemList from './ItemList';
 import Loading from './loading/Loading';
-
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 
 function ItemListContainer({greeting}) {
-    const [productos, setProductos] = useState([])
-
-    const [carga, setCarga] = useState(true)
-    const {categoriaId} = useParams()
+  const [productos, setProductos] = useState([])
+  const [carga, setCarga] = useState(true)
+  const {categoriaId} = useParams()
 
 
     useEffect(() => {
-      if(categoriaId){
-        getFetch
-        .then(resp => setProductos(resp.filter(prod => prod.categoria === categoriaId)))
-        .catch(err => console.log(err))
-        .finally(()=> setCarga(false)) 
-      } else {
-        getFetch
-        .then(resp => setProductos(resp))
-        .catch(err => console.log(err))
-        .finally(()=> setCarga(false)) 
-      }
+      const db = getFirestore()
 
-    }, [categoriaId])
+      if (categoriaId) {
+       
+        const queryProducts = query(collection(db, 'items'), where ('categoria', '==', categoriaId))
+          getDocs(queryProducts)  
+          .then(res => setProductos( res.docs.map(prod => ( { id: prod.id, ...prod.data() } ) ) ))
+          .catch(err => console.log(err))
+          .finally(()=> setCarga(false))       
 
-        console.log(productos)
+      } else {            
+ 
+        const queryProducts = collection(db, 'items')                  
+          getDocs(queryProducts)
+          .then(res => setProductos( res.docs.map(prod => ( { id: prod.id, ...prod.data() } ) ) )) 
+          .catch(err => err)
+          .finally(()=> setCarga(false)) }
 
-    return (
+      }, [categoriaId])
+
+  return (
       <div>
           {carga ? (<Loading />):
           
           (
             <>   
-            <h4>{greeting}</h4>
-            
-            <div className='row justify-content-center'>
-            <ItemList items={productos}/>
-            </div>
-            {/* <ItemDetailContainer /> */}
-            </>
-          )
-
-           
+              <h4>{greeting}</h4>
+                <div className='row justify-content-center'>
+                <ItemList items={productos}/>
+                </div>
+           </>
+          )           
         }
 
       </div>
     )
-
 }
 
 
 export default ItemListContainer
-
-
-
-
-
-
-// const ItemListContainer = (props) => {
-//     return (
-//         <div>
-//             <h1>{props.greeting}</h1>
-//         </div>
-//     )
-// }
-
-// export default ItemListContainer
