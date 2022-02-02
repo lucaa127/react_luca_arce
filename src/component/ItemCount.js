@@ -41,7 +41,8 @@ const ItemCount = ({minimo, maximo, onAdd}) => {
                             <Button variant="outline-secondary" className='col-sm-2 col-2' onClick={handleIncrement}>
                             +
                             </Button>
-                            <Button variant="secondary" onClick={() => onAdd(counter)}>Agregar producto</Button>
+                           {maximo > 0 ? <Button variant="secondary" onClick={() => onAdd(counter)}>Agregar producto</Button> 
+                           :             <Button variant="secondary" disabled>Sin stock</Button>   }
                         </InputGroup>
                         
 
