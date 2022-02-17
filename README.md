@@ -23,6 +23,10 @@ Lista de recursos utilizados para el desarrollo del proyecto.
 ### Instalación de paquetes npm
 npm install
 
+## Link al repositorio del proyecto
+
+https://github.com/lucaa127/react_luca_arce
+
 ## Iniciando aplicación de manera local
 
 ### `npm start`
