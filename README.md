@@ -4,7 +4,8 @@
 
 ## Demo de la aplicación
 
- 
+[Netlify app demo](https://practical-kare-a3d830.netlify.app)
+
 # Recursos utilizados: 
 Lista de recursos utilizados para el desarrollo del proyecto.
 
