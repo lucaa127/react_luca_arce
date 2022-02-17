@@ -43,4 +43,8 @@ Para mas información revisa la sección `about` [deployment](https://facebook.g
 
 ## Mas información sobre React
 
+<<<<<<< HEAD
 Puedes leer mas sobre [Cómo crear una aplicación con React](https://facebook.github.io/create-react-app/docs/getting-started).
+=======
+Puedes leer mas sobre [Cómo crear una aplicación con React](https://facebook.github.io/create-react-app/docs/getting-started).
+>>>>>>> 9337243d80515ee0058206cc4fb69df782e68508
