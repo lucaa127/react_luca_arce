@@ -1,5 +1,5 @@
 
-import { useCartContext } from '../context/CartContext'
+import { useCartContext } from '../../context/CartContext'
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 import { FaTrashAlt } from "react-icons/fa"
@@ -15,6 +15,7 @@ const [condicional, setCondicional] = useState(false);
 
 const [dataForm , setDataForm ] = useState({
     email: '',
+    
     name: '',
     phone: ''
 });
@@ -42,9 +43,6 @@ const realizarCompra = async (e) => {
 
     
     const db = getFirestore()
-
-
-
 
     const oredenCollection = collection(db, 'ordenes')
     await addDoc(oredenCollection, orden)
@@ -128,7 +126,7 @@ function handleChange(e) {
                         <td> <Card.Img variant="top" src={prods.img} style={{width :'40px'}} alt={prods.nombre} />{prods.nombre} </td>
                         <td> ${prods.precio}  </td> 
                         <td> {prods.cantidad} </td>
-                        <td> <button onClick={() => deleteProd (prods.id)}> <FaTrashAlt/> </button> </td>
+                        <td> <i className='danger' onClick={() => deleteProd (prods.id)}> <FaTrashAlt/> </i> </td>
                     </tr>       
                     </>   ) }
 
@@ -143,22 +141,28 @@ function handleChange(e) {
             <button className='btn-danger mt-2' onClick={() => vaciarCarrito()}>Vaciar carrito</button>       
 
             <form onSubmit={realizarCompra} >
-                                                     
+
+                <h5 className='mt-20'>Complete el formulario para finalizar su compra</h5>
+
                             <input 
                                 className='mt-2'
                                 type='text' 
                                 name='name' 
-                                placeholder='name' 
+                                placeholder='Nombre completo' 
                                 onChange={handleChange}
                                 value={dataForm.name}
+                                required
                             /><br />
                             <input 
                                 className='mt-2'
-                                type='text' 
+                                type='tel' 
+                                pattern='[0-9]{10}'
+                                title='Ingrese un número de teléfono valido'
                                 name='phone'
-                                placeholder='tel' 
+                                placeholder='teléfono de contacto' 
                                 onChange={handleChange}
                                 value={dataForm.phone}
+                                required
                             /><br/>
                             <input 
                                 className='mt-2'
@@ -169,7 +173,26 @@ function handleChange(e) {
                                 value={dataForm.email}
                                 required
                             /><br/>
-                            <button className='btn-danger mt-2' onClick={realizarCompra}>Generar orden</button>
+                             <input 
+                                className='mt-2'
+                                type='email' 
+                                name='validateEmail'
+                                placeholder='valide su email' 
+                                onChange={handleChange}
+                                value={dataForm.validateEmail}
+                                required
+                                /><br/>
+                                
+                                {dataForm.validateEmail === dataForm.email && dataForm.email != undefined ? 
+                                <h6>Ingrese sus datos</h6>
+                                : <h6>Valide su correo</h6> }
+
+                                {dataForm.validateEmail === dataForm.email ? 
+                                <button className='btn-danger mt-2' type='submit'>Generar orden </button>
+                                : <button className='btn-danger mt-2' type='submit' disabled>Generar orden </button>}
+
+                                
+                           
                             
                         </form>
              
@@ -192,64 +215,7 @@ function handleChange(e) {
 export default Cart
 
 
+// <button onClick={() => deleteProd (prods.id)}> <FaTrashAlt/> </button> 
 
 
 
-
-
-
-
-/*
-        <div>  
-            {
-                condicional  ? 
-                    console.log(idOrden)
-                : 
-                    <>
-                        {cartList.map(prod => <li key={prod.id}>{prod.nombre} - cant: {prod.cantidad}</li>)}
-                        <button onClick={vaciarCarrito}>Vaciar CArrito</button>
-                        <form 
-                            onSubmit={realizarCompra} 
-                            //onChange={handleChange} 
-                        >
-                            <input 
-                                type='text' 
-                                name='name' 
-                                placeholder='name' 
-                                onChange={handleChange}
-                                value={dataForm.name}
-                            /><br />
-                            <input 
-                                type='text' 
-                                name='phone'
-                                placeholder='tel' 
-                                onChange={handleChange}
-                                value={dataForm.phone}
-                            /><br/>
-                            <input 
-                                type='email' 
-                                name='email'
-                                placeholder='email' 
-                                onChange={handleChange}
-                                value={dataForm.email}
-                            /><br/>
-                            <button>Generar Orden</button>
-                        </form>
-                        <button onClick={realizarCompra}>Generar Orden</button>
-                    </>
-
-            }          
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-*/

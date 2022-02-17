@@ -52,6 +52,20 @@ export const CartContextProvider = ({children}) => {
         }
 
 
+        const controlCartStock = (stock, id) => {
+            //evita que al repetir compra de un mismo item en el carrito
+            //supere el stock existente en base de datos.
+            const idItem = cartList.findIndex(indice => indice.id === id )
+                 
+            if (idItem > -1){
+                const quantityInCart = cartList[idItem].cantidad
+                const stockRestante = stock - quantityInCart
+                return(stockRestante)
+                    
+                } else { return(stock)}
+         
+        } 
+
         return(
             <cartContext.Provider value={{
                 cartList,
@@ -59,7 +73,8 @@ export const CartContextProvider = ({children}) => {
                 deleteProd,
                 total,
                 totalWidget,
-                vaciarCarrito
+                vaciarCarrito,
+                controlCartStock
             }}>
                 {children}
             </cartContext.Provider>

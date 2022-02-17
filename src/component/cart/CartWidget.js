@@ -1,7 +1,7 @@
 
 import React from 'react'
 import {RiShoppingCartFill} from 'react-icons/ri';
-import { useCartContext } from '../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
 

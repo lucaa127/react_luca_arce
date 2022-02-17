@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getFetch } from "../helper/mock";
+import { getFetch } from "../../helper/mock";
 import ItemDetail from "./ItemDetail";
-import Loading from "./loading/Loading";
+import Loading from "../loading/Loading";
 import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 
